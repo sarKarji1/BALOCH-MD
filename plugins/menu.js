@@ -19,7 +19,7 @@ const {cmd , commands} = require('../command')
 const os = require("os")
 const {runtime} = require('../lib/functions')
 const axios = require('axios')
-const menu_img = https://raw.githubusercontent.com/Sarkar-Bandaheali/BALOCH-MD_DATABASE/refs/heads/main/autovoice/file-KegkWLpfvrRHPJDpD5iTRB%20(1).webp
+const menu_img = 'https://raw.githubusercontent.com/Sarkar-Bandaheali/BALOCH-MD_DATABASE/refs/heads/main/autovoice/file-KegkWLpfvrRHPJDpD5iTRB%20(1).webp'
 
 cmd({
 
