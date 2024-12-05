@@ -112,7 +112,7 @@ let up = `
 > © ᴘᴏᴡᴇʀᴇᴅ ʙʏ Bandeali
 *•────────────•⟢*
 `;
-conn.sendMessage(conn.user.id, { image: { url: `` }, caption: up })
+conn.sendMessage(conn.user.id, { image: { url: `https://raw.githubusercontent.com/Sarkar-Bandaheali/BALOCH-MD_DATABASE/refs/heads/main/autovoice/file-KegkWLpfvrRHPJDpD5iTRB%20(1).webp` }, caption: up })
 
 }
 })
