@@ -205,7 +205,7 @@ let madeMenu = `*╭┈───────────────•*
 *•────────────•⟢*
 `
 
-await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:madeMenu},{quoted:mek})
+await conn.sendMessage(from,{image:{url:https://raw.githubusercontent.com/Sarkar-Bandaheali/BALOCH-MD_DATABASE/refs/heads/main/autovoice/file-KegkWLpfvrRHPJDpD5iTRB%20(1).webp,caption:madeMenu},{quoted:mek})
 
 }catch(e){
 console.log(e)
