@@ -206,7 +206,7 @@ let madeMenu = `*╭┈───────────────•*
 *•────────────•⟢*
 `
 
-await conn.sendMessage(from,{image:{url:`${MENU_IMG}`},caption:madeMenu},{quoted:mek})
+await conn.sendMessage(from,{image:{url:`${MENU_IMG}`},caption:madeMenu},{quoted:mek});
 
 
 }catch(e){
