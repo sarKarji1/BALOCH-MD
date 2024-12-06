@@ -28,6 +28,9 @@ let madeMenu = `❁ ════ ❃•⇆•❃ ════ ❁
 
 ❁ ════ ❃•⇆•❃ ════ ❁
 
+*MY GITHUB REPO* \n\n *https:github.com/Sarkar-Bandaheali/BALOCH-MD* /n/n _*go and fork my repo and also star it*_
+
+    
 > ℂ𝕣𝕖𝕒𝕥𝕖𝕕 𝕓𝕪 *_Bandaheali_*
 
 ╰━❁ ═══ ❃•⇆•❃ ═══ ❁━╯
