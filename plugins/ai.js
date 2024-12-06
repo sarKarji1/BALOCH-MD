@@ -57,7 +57,7 @@ cmd(
         try {
             // Input Validation
             if (!q || q.trim().length === 0) {
-                return reply("❌ Please provide a valid query for the AI chat.");
+                return reply("Please ask something");
             }
 
             // Fetching API Response
@@ -78,7 +78,7 @@ cmd(
             }
 
             // Sending AI Response
-            return reply(`🤖 *BALOCH-MD RESPONCE:*\n\n${data.result}`);
+            return reply(`🤖 *CHATGPT RESPONCE:*\n\n ~${pushname}~ ${data.result}`);
         } catch (error) {
             console.error("Unexpected Error:", error);
 
