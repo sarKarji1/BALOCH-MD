@@ -41,158 +41,146 @@ cmd({
 async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 
 try{
-let madeMenu = `*╭┈───────────────•*
-*⇆ HELLO ⇆*
-     *${pushname}*
-*⇆ THIS IS MY COMMANDS MENU ⇆*
-*╰┈───────────────•*
-*ᴄʀᴇᴀᴛᴇᴅ ʙʏ BANDAHEALI*
-
+let madeMenu = `
+*╭┈───────────────────────────────────────────•*
+*│  ◦* ~MR~ *${pushname}* *_ASLAMUALAIKUM_*
+*╰┈───────────────────────────────────────────•*
 *◆─〈 ${config.BOT_NAME} 〉─◆*
-*╭┈───────────────•* 
-*│  ◦*  *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
-*│  ◦*  *ᴍᴏᴅᴇ* : *[${config.MODE}]*
-*│  ◦*  *ᴘʀᴇғɪx* : *[${config.PREFIX}]*
-*│  ◦*  *ɴᴀᴍᴇ ʙᴏᴛ* : *❖BALOCH-MD❖*
-*│  ◦*  *ᴄʀᴇᴀᴛᴏʀ* : *➺𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞࿐*
-*│  ◦*  *ᴠᴇʀsɪᴏɴ* : *ᴠ.1.0.0*
-*│  ◦*  *ᴍᴇɴᴜ ᴄᴍᴅ* : *ᴍᴇɴᴜ ʟɪsᴛ*
-*╰┈───────────────•*
-*♡︎•━━━━━━☻︎━━━━━━•♡︎*
-
-*♡︎•━━━━━━☻︎━━━━━━•♡︎*
+*╭┈───────────────────────────────────────────•* 
+*│  ◦*  *RUNTIME* : ${runtime(process.uptime())}
+ ╰┈──────────────────────────────────────────•*
+ ╭┈──────────────────────────────────────•*
+*│  ◦*  *MoDe* : *[${config.MODE}]*
+*│  ◦*  *PreFiX* : *[${config.PREFIX}]*
+*│  ◦*  *Bot Name* : *[${config.BOT_NAME}]*
+*│  ◦*  *CREATOR* : *➺𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞࿐*
+*│  ◦*  *VERSION* : *ᴠ.1.0.0*
+*│  ◦*  *OWNER NAME* : *[${config.OWNER_NAME}] 
+╰┈───────────────────────────────────────•*
 *[ • 🤴 OWNER-CMD 🤴 ‎• ]*
 *╭┈───────────────•*
-*┋*👑 *${prefix}ᴜᴘᴅᴀᴛᴇᴄᴍᴅ*
-*┋*👑 *${prefix}sᴇᴛᴛɪɴɢs*
-*┋*👑 *${prefix}ᴏᴡɴᴇʀ*
-*┋*👑 *${prefix}ʀᴇᴘᴏ*
-*┋*👑 *${prefix}ꜱʏꜱᴛᴇᴍ*
-*┋*👑 *${prefix}ꜱᴛᴀᴛᴜꜱ*
-*┋*👑 *${prefix}ʙʟᴏᴄᴋ*
-*┋*👑 *${prefix}ᴜɴʙʟᴏᴄᴋ*
-*┋*👑 *${prefix}sʜᴜᴛᴅᴏᴡɴ*
-*┋*👑 *${prefix}ᴄʟᴇᴀʀᴄʜᴀᴛs*
-*┋*👑 *${prefix}sᴇᴛᴘᴘ*
-*┋*👑 *${prefix}ʙʀᴏᴀᴅᴄᴀsᴛ*
-*┋*👑 *${prefix}ᴊɪᴅ*
-*┋*👑 *${prefix}ɢᴊɪᴅ*
-*┋*👑 *${prefix}ʀᴇꜱᴛᴀʀᴛ*
-*┋*👑 *${prefix}getvar* <allvars>
-*┋*👑 *${prefix}setvar <true/false>*
+*┋*👑 *${prefix}UPDATECMD*
+*┋*👑 *${prefix}SETTINGS <all settings>*
+*┋*👑 *${prefix}OWNER*
+*┋*👑 *${prefix}REPO*
+*┋*👑 *${prefix}SYSTEM*
+*┋*👑 *${prefix}UPTIME*
+*┋*👑 *${prefix}BLOCK*
+*┋*👑 *${prefix}UNBLOCK*
+*┋*👑 *${prefix}SHUTDOWN*
+*┋*👑 *${prefix}CLEAR*
+*┋*👑 *${prefix}SETPP*
+*┋*👑 *${prefix}BROADCAST*
+*┋*👑 *${prefix}JID*
+*┋*👑 *${prefix}GJID*
+*┋*👑 *${prefix}RESTART*
+*┋*👑 *${prefix}GETVAR* <allvars>
+*┋*👑 *${prefix}SETVAR <true/false>*
 *╰┈───────────────•*
 *[ • 🔎 SEARCH-CMD 🔍 ‎• ]*
 *╭┈───────────────•*
-*┋*🔍 *${prefix}ʏᴛꜱ  <ᴛᴇxᴛ>*
-*┋*🔍 *${prefix}ʏᴛᴀ <ᴜʀʟ>*
-*┋*🔍 *${prefix}ʟᴏʟɪ <ᴛᴇxᴛ>*
-*┋*🔍 *${prefix}ᴍᴏᴠɪᴇɪɴғᴏ <ᴛᴇxᴛ>*
-*┋*🔍 *${prefix}ɪᴍɢ <ᴛᴇxᴛ>*
-*┋*🔍 *${prefix}ᴡᴇᴀᴛʜᴇʀ <ᴄɪᴛʏ>*
+*┋*🔍 *${prefix}YTS  <ᴛᴇxᴛ>*
+*┋*🔍 *${prefix}YTA <ᴜʀʟ>*
+*┋*🔍 *${prefix}LOLI <ᴛᴇxᴛ>*
+*┋*🔍 *${prefix}MOVIEINFO <ᴛᴇxᴛ>*
+*┋*🔍 *${prefix}IMG <ᴛᴇxᴛ>*
+*┋*🔍 *${prefix}WEATHER <ᴄɪᴛʏ>*
 *╰┈───────────────•*
 *[ • 🧠 AI-CMD 🧠  ‎• ]*
 *╭┈───────────────•*
-*┋*🧠 *${prefix}ɢᴘᴛ <ᴛᴇxᴛ>*
-*┋*🧠 *${prefix}sarkar <ᴛᴇxᴛ>*
-*┋*🧠 *${prefix}ʙᴏᴛ <ᴛᴇxᴛ>*
+*┋*🧠 *${prefix}GPT <ᴛᴇxᴛ>*
+*┋*🧠 *${prefix}SARKAR <ᴛᴇxᴛ>*
+*┋*🧠 *${prefix}BOT <ᴛᴇxᴛ>*
 *╰┈───────────────•*
 *[ • 🚻 GROUP-CMD 🚻 ‎• ]*
 *╭┈───────────────•*
-*┋*⛔️ *${prefix}ᴅᴇʟᴇᴛᴇ <ʀᴇᴘʟʏ ғᴏʀ ᴅᴇʟᴇᴛᴇ sᴍs>*
-*┋*🤝 *${prefix}ᴀᴅᴅ*
-*┋*🦵 *${prefix}ᴋɪᴄᴋ*
-*┋*👋 *${prefix}sᴇᴛɢᴏᴏᴅʙʏᴇ <ᴛᴇxᴛ>*
-*┋*🤗 *${prefix}sᴇᴛᴡᴇʟᴄᴏᴍᴇ <ᴛᴇxᴛ>*
-*┋*👨👑 *${prefix}ᴘʀᴏᴍᴏᴛᴇ*
-*┋*👑👨 *${prefix}ᴅᴇᴍᴏᴛᴇ*
-*┋*🎳 *${prefix}ᴛᴀɢᴀʟʟ*
-*┋*⏬️ *${prefix}ɢᴇᴛᴘɪᴄ*
-*┋*♻️ *${prefix}ɪɴᴠɪᴛᴇ*
-*┋*❓️ *${prefix}ʀᴇᴠᴏᴋᴇ*
-*┋*✅️ *${prefix}ᴊᴏɪɴʀᴇǫᴜᴇsᴛs*
-*┋*🔱 *${prefix}ᴀʟʟʀᴇǫ*
-*┋*🔇 *${prefix}ᴍᴜᴛᴇ*
-*┋*🔊 *${prefix}ᴜɴᴍᴜᴛᴇ*
-*┋*🔒 *${prefix}ʟᴏᴄᴋɢᴄ*
-*┋*🔓 *${prefix}ᴜɴʟᴏᴄᴋɢᴄ*
-*┋*😞 *${prefix}ʟᴇᴀᴠᴇ*
-*┋*🏷 *${prefix}ᴜᴘᴅᴀᴛᴇɢɴᴀᴍᴇ*
-*┋*♻️ *${prefix}ᴜᴘᴅᴀᴛᴇɢᴅᴇsᴄ*
-*┋*🫂 *${prefix}ᴊᴏɪɴ*
-*┋*👣 *${prefix}ʜɪᴅᴇᴛᴀɢ*
-*┋*ℹ️ *${prefix}ɢɪɴғᴏ*
-*┋*🕛 *${prefix}ᴅɪsᴀᴘᴘᴇᴀʀ ᴏɴ*
-*┋*🕛 *${prefix}ᴅɪsᴀᴘᴘᴇᴀʀ ᴏғғ*
-*┋*🕛 *${prefix}ᴅɪsᴀᴘᴘᴇᴀʀ 7ᴅ 24ʜ 90ᴅ*
-*┋*ℹ️ *${prefix}sᴇɴᴅᴅᴍ*
+*┋*⛔️ *${prefix}DELETE <ʀᴇᴘʟʏ ғᴏʀ ᴅᴇʟᴇᴛᴇ sᴍs>*
+*┋*🤝 *${prefix}ADD*
+*┋*🦵 *${prefix}KICK*
+*┋*👋 *${prefix}SETGOODBYE <ᴛᴇxᴛ>*
+*┋*🤗 *${prefix}SETWELOCME <ᴛᴇxᴛ>*
+*┋*👨👑 *${prefix}PROMOTE*
+*┋*👑👨 *${prefix}DEMOTE*
+*┋*🎳 *${prefix}TAGALL*
+*┋*⏬️ *${prefix}GETPIC*
+*┋*♻️ *${prefix}INVITE*
+*┋*❓️ *${prefix}REVOKE*
+*┋*✅️ *${prefix}JOINREQUESTS*
+*┋*🔱 *${prefix}ALLREQ*
+*┋*🔇 *${prefix}MUTE*
+*┋*🔊 *${prefix}UNMUTE*
+*┋*🔒 *${prefix}LOCKGC*
+*┋*🔓 *${prefix}UNLOCKGC*
+*┋*😞 *${prefix}LEAVE*
+*┋*🏷 *${prefix}UPDATEGNAME*
+*┋*♻️ *${prefix}UPDATEGDESC*
+*┋*🫂 *${prefix}JOIN*
+*┋*👣 *${prefix}HIDETAG*
+*┋*ℹ️ *${prefix}GINFO*
+*┋*🕛 *${prefix}DISAPPEAR ᴏɴ*
+*┋*🕛 *${prefix}DISAPPEAR ᴏғғ*
+*┋*🕛 *${prefix}DISAPPEAR 7ᴅ 24ʜ 90ᴅ*
+*┋*ℹ️ *${prefix}SENDDM*
 *╰┈───────────────•*
 *[ • ⚠️ INFO-CMD ⚠️ ‎• ]*
 *╭┈───────────────•*
-*┋*📃 *${prefix}ᴍᴇɴᴜ*
-*┋*🧠 *${prefix}ᴀʙᴏᴜᴛ*
-*┋*📜 *${prefix}sᴄʀɪᴘᴛ*
-*┋*📂 *${prefix}ʀᴇᴘᴏ*
-*┋*🧬 *${prefix}ᴀʟɪᴠᴇ*
-*┋*📃 *${prefix}ʙᴏᴛɪɴꜰᴏ*
-*┋*🗿 *${prefix}ꜱᴛᴀᴛᴜꜱ*
-*┋*💸 *${prefix}ꜱᴜᴘᴘᴏʀᴛ*
-*┋*📍 *${prefix}ᴘɪɴɢ*
-*┋*📍 *${prefix}ᴘɪɴɢ2*
-*┋*🛠 *${prefix}ꜱʏꜱᴛᴇᴍ*
+*┋*📃 *${prefix}MENU*
+*┋*🧠 *${prefix}ABOUT*
+*┋*📜 *${prefix}SCRIPT*
+*┋*📂 *${prefix}REPO*
+*┋*🧬 *${prefix}ALIVE*
+*┋*📃 *${prefix}ʙᴏᴛɪɴ*
+*┋*🗿 *${prefix}STATUS*
+*┋*💸 *${prefix}SUPPORT*
+*┋*📍 *${prefix}PING*
+*┋*🛠 *${prefix}RUNTIME*
 *╰┈───────────────•*
 *[ • 📥 DOWNLOADER-CMD 📥 ‎• ]*
 *╭┈───────────────•*
-*┋*⏬️ *${prefix}ғʙ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ɪɴꜱᴛᴀ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ᴠɪᴅᴇᴏ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ɢᴅʀɪᴠᴇ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ᴛᴡɪᴛᴛᴇʀ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ᴛᴛ<ᴜʀʟ>*
-*┋*⏬️ *${prefix}ᴍᴇᴅɪᴀғɪʀᴇ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ꜱᴏɴɢ <ϙᴜᴇʀʏ>*
-*┋*⏬️ *${prefix}ᴘʟᴀʏ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ᴠɪᴅᴇᴏ <ϙᴜᴇʀʏ>*
-*┋*⏬️ *${prefix}ᴠɪᴅᴇᴏ2 <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ɪᴍɢ <ϙᴜᴇʀʏ>*
-*┋*⏬️ *${prefix}ᴀᴘᴋ <ɴᴀᴍᴇ>*
-*┋*⏬️ *${prefix}ᴅᴀʀᴀᴍᴀ <ᴛɪᴛᴛʟᴇ>*
-*┋*⏬️ *${prefix}ᴘʟᴀʏ2 <ᴛɪᴛᴛʟᴇ>*
-*┋*⏬️ *${prefix}ʙᴀɪsᴄᴏᴘᴇ <ᴜʀʟ>*
-*┋*⏬️ *${prefix}ɢɪɴɪsɪsɪʟᴀ <ᴛɪᴛᴛʟᴇ>*
+*┋*⏬️ *${prefix}FB <ᴜʀʟ>*
+*┋*⏬️ *${prefix}INSTA <ᴜʀʟ>*
+*┋*⏬️ *${prefix}VIDEO <ᴜʀʟ>*
+*┋*⏬️ *${prefix}GDRIVE <ᴜʀʟ>*
+*┋*⏬️ *${prefix}TWITTER <ᴜʀʟ>*
+*┋*⏬️ *${prefix}TT<tiktok ᴜʀʟ>*
+*┋*⏬️ *${prefix}MEDIAFIRE <ᴜʀʟ>*
+*┋*⏬️ *${prefix}SONG <ϙᴜᴇʀʏ>*
+*┋*⏬️ *${prefix}PLAY <ᴜʀʟ>*
+*┋*⏬️ *${prefix}VIDEO <ϙᴜᴇʀʏ>*
+*┋*⏬️ *${prefix}VIDEO <ᴜʀʟ>*
+*┋*⏬️ *${prefix}IMG <ϙᴜᴇʀʏ>*
+*┋*⏬️ *${prefix}APK <ɴᴀᴍᴇ>*
+*┋*⏬️ *${prefix}BAISCOPT <ᴜʀʟ>*
+*┋*⏬️ *${prefix}GINISISILA <ᴛɪᴛᴛʟᴇ>*
 *╰┈───────────────•*
 *[ • ♻️ CONVERTER-CMD ♻️ ‎• ]*
 *╭┈───────────────•*
-*┋*😝 *${prefix}sᴛɪᴄᴋᴇʀ*
-*┋*🈯️ *${prefix}ᴛʀᴛ <ᴛᴇxᴛ>*
-*┋*🔊 *${prefix}ᴛᴛs <ᴛᴇxᴛ>*
+*┋*😝 *${prefix}STICKER*
+*┋*🈯️ *${prefix}TRT <ᴛᴇxᴛ>*
+*┋*🔊 *${prefix}TTS <ᴛᴇxᴛ>*
 *╰┈───────────────•*
 *[ • ♾️ RANDOM-CMD ♾️ ‎• ]*
 *╭┈───────────────•*
-*┋*👑 *${prefix}ᴋɪɴɢ*
-*┋*🐶 *${prefix}ᴅᴏɢ*
-*┋*💢 *${prefix}ᴀɴɪᴍᴇ*
-*┋*💫 *${prefix}ᴀɴɪᴍᴇɢɪʀʟ*
-*┋*💫 *${prefix}ᴀɴɪᴍᴇɢɪʀʟ1*
-*┋*💫 *${prefix}ᴀɴɪᴍᴇɢɪʀʟ2*
-*┋*💫 *${prefix}ᴀɴɪᴍᴇɢɪʀʟ3*
-*┋*💫 *${prefix}ᴀɴɪᴍᴇɢɪʀʟ4*
-*┋*💫 *${prefix}ᴀɴɪᴍᴇɢɪʀʟ5*
-*╰┈───────────────•*
-*[ • 🏜️ WALLPAPERS-CMD 🏜️ ‎• ]*
-*╭┈───────────────•*
-*┋* *${prefix}ɪᴍɢ*
+*┋*👑 *${prefix}KING*
+*┋*🐶 *${prefix}DOG*
+*┋*💢 *${prefix}ANIME*
+*┋*💫 *${prefix}ANIMEGIRL*
+*┋*💫 *${prefix}ANIMEGIRL1*
+*┋*💫 *${prefix}ANIMEGIRL2*
+*┋*💫 *${prefix}ANIMEGIRL3*
+*┋*💫 *${prefix}ANIMEGIRL4*
+*┋*💫 *${prefix}ANIMEGIRL5*
 *╰┈───────────────•*
 *[ • 🌐 OTHER-CMD 🌐 ‎• ]*
 *╭┈───────────────•*
-*┋*🈯️ *${prefix}ᴛʀᴛ*
-*┋*😜 *${prefix}ᴊᴏᴋᴇ*
-*┋*🙃 *${prefix}ꜰᴀᴄᴛ*
-*┋*ℹ️ *${prefix}ɢɪᴛʜᴜʙꜱᴛᴀʟᴋ*
-*┋*🔑 *${prefix}ɢᴘᴀꜱꜱ*
-*┋*👨‍💻 *${prefix}ʜᴀᴄᴋ*
-*┋*⁉️ *${prefix}ǫᴜᴏᴛᴇ*
-*┋*🔍 *${prefix}ꜱʀᴇᴘᴏ*
-*┋*☺️ *${prefix}ᴅᴇꜰɪɴᴇ*
+*┋*😜 *${prefix}JOKE*
+*┋*🙃 *${prefix}FACT*
+*┋*ℹ️ *${prefix}GITHUBSTALK*
+*┋*🔑 *${prefix}GPASS*
+*┋*👨‍💻 *${prefix}HACK*
+*┋*⁉️ *${prefix}QUOTE*
+*┋*🔍 *${prefix}REPO*
+*┋*☺️ *${prefix}DEFINE*
 *╰┈───────────────•*
 *❒⁠⁠⁠⁠▭▬▭▬▭▬▭▬▭▬▭▬▭❒*⁠⁠⁠⁠
 ━━━━━•⟢
@@ -203,7 +191,7 @@ let madeMenu = `*╭┈───────────────•*
 ┗━━━━━━━━━━━━━━━━━━━◆
 
 *•────────────•⟢*
-> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞
+> © _CREATED BY BANDAHEALI_
 *•────────────•⟢*
 `
 
