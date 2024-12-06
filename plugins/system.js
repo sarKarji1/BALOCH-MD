@@ -22,24 +22,28 @@ const {sleep} = require('../lib/functions')
 
 cmd({
     pattern: "restart",
-    alias: ["rebot","reboot"], 
+    alias: ["rebot", "reboot"],
     react: "🐬",
     desc: "restart the bot",
     category: "owner",
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-if (!isOwner) return;
-const {exec} = require("child_process")
-reply("restarting...")
-await sleep(1500)
-exec("pm2 restart all")
-}catch(e){
-console.log(e)
-reply(`${e}`)
-}
-})
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        // Check if the sender's number matches the OWNER_NUMBER
+        if (senderNumber !== config.OWNER_NUMBER) {
+            return reply("❌ You are not authorized to use this command.");
+        }
+
+        const { exec } = require("child_process");
+        reply("restarting...");
+        await sleep(1500);
+        exec("pm2 restart all");
+    } catch (e) {
+        console.log(e);
+        reply(`${e}`);
+    }
+});
 
 cmd({
 
@@ -104,81 +108,79 @@ reply(`${e}`)
 const fs = require("fs");
 const path = require("path");
 
-cmd(
-    {
-        pattern: "setvar",
-        react: "⚙️",
-        alias: ["setvariable", "updatevar"],
-        desc: "Set or update bot's configuration variables and restart the bot.",
-        category: "main",
-        use: ".setvar <KEY> <VALUE>",
-        filename: __filename,
-    },
-    async (conn, mek, m, { from, args, reply }) => {
-        try {
-            if (args.length < 2) {
-                return reply(
-                    "Usage: .setvar <KEY> <VALUE>\nExample: .setvar AUTO_REPLY false",
-                );
-            }
-
-            const [key, ...rest] = args; // Extract the key and value
-            const value = rest.join(" ").trim(); // Handle multi-word values
-            const configPath = path.resolve(__dirname, "../config.js"); // Path to config.js
-
-            // Read the current config.js content
-            let configContent = fs.readFileSync(configPath, "utf8");
-
-            // Prepare the value for replacement (handle boolean and string types)
-            const formattedValue =
-                isNaN(value) &&
-                (value.toLowerCase() === "true" ||
-                    value.toLowerCase() === "false")
-                    ? value.toLowerCase()
-                    : `"${value}"`;
-
-            const keyRegex = new RegExp(`${key}:\\s*.*`, "m");
-
-            // Update or add the key-value pair in the config.js
-            if (keyRegex.test(configContent)) {
-                configContent = configContent.replace(
-                    keyRegex,
-                    `${key}: ${formattedValue},`,
-                );
-            } else {
-                return reply(`❌ Key "${key}" does not exist in config.js.`);
-            }
-
-            // Write updated config.js back to the file
-            fs.writeFileSync(configPath, configContent);
-
-            // Send success message and then restart
-            await reply(
-                `✅ Successfully updated variable:\n*${key}* ➠ *${value}*\n\n♻️ Restarting bot...`,
-            );
-
-            // Restart the bot
-            setTimeout(() => process.exit(1), 5000); // Delay to ensure message is sent
-        } catch (e) {
-            console.error(e);
-            reply(`❌ Error updating variable: ${e.message}`);
+cmd({
+    pattern: "setvar",
+    react: "⚙️",
+    alias: ["setvariable", "updatevar"],
+    desc: "Set or update bot's configuration variables and restart the bot.",
+    category: "main",
+    use: ".setvar <KEY> <VALUE>",
+    filename: __filename,
+},
+async (conn, mek, m, { from, args, reply, senderNumber }) => {
+    try {
+        // Check if the sender's number matches the OWNER_NUMBER
+        if (senderNumber !== config.OWNER_NUMBER) {
+            return reply("❌ You are not authorized to use this command.");
         }
-    },
-);
+
+        if (args.length < 2) {
+            return reply("Usage: .setvar <KEY> <VALUE>\nExample: .setvar AUTO_REPLY false");
+        }
+
+        const [key, ...rest] = args;
+        const value = rest.join(" ").trim();
+        const configPath = path.resolve(__dirname, "../config.js");
+
+        let configContent = fs.readFileSync(configPath, "utf8");
+
+        const formattedValue =
+            isNaN(value) && (value.toLowerCase() === "true" || value.toLowerCase() === "false")
+                ? value.toLowerCase()
+                : `"${value}"`;
+
+        const keyRegex = new RegExp(`${key}:\\s*.*`, "m");
+
+        if (keyRegex.test(configContent)) {
+            configContent = configContent.replace(
+                keyRegex,
+                `${key}: ${formattedValue},`
+            );
+        } else {
+            return reply(`❌ Key "${key}" does not exist in config.js.`);
+        }
+
+        fs.writeFileSync(configPath, configContent);
+
+        await reply(
+            `✅ Successfully updated variable:\n*${key}* ➠ *${value}*\n\n♻️ Restarting bot...`,
+        );
+
+        setTimeout(() => process.exit(1), 5000); // Delay to ensure message is sent
+    } catch (e) {
+        console.error(e);
+        reply(`❌ Error updating variable: ${e.message}`);
+    }
+});
 
 
 
 cmd({
     pattern: "system",
     react: "♠️",
-    alias: ["uptime","status","runtime"],
-    desc: "cheack uptime",
+    alias: ["uptime", "status", "runtime"],
+    desc: "check uptime",
     category: "main",
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-let status = `
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        // Check if the sender's number matches the OWNER_NUMBER
+        if (senderNumber !== config.OWNER_NUMBER) {
+            return reply("❌ You are not authorized to use this command.");
+        }
+
+        let status = `
 *[ •  BALOCH-MD - UPTIME ‎ • ]*
 *╭┈───────────────•*
 *│  ◦* *_UPTIME:➠_*
@@ -199,13 +201,13 @@ let status = `
 > © ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞
 *•────────────•⟢*
 `
-await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:`${status}`},{quoted:mek})
+        await conn.sendMessage(from, { image: { url: config.ALIVE_IMG }, caption: `${status}` }, { quoted: mek });
 
-}catch(e){
-console.log(e)
-reply(`${e}`)
-}
-})
+    } catch (e) {
+        console.log(e);
+        reply(`${e}`);
+    }
+});
 
 cmd({
     pattern: "script",
