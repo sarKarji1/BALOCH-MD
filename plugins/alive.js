@@ -12,51 +12,44 @@
 */
 
 const config = require('../config');
-const {
-  cmd,
-  commands
-} = require("../command");
+const { cmd, commands } = require("../command");
+const axios = require('axios'); // Axios for API requests
+
 cmd({
   'pattern': "alive",
   'react': '🌐',
-  'desc': "Check bot online or no.",
+  'desc': "Check bot online or not.",
   'category': "main",
   'filename': __filename
-}, async (_0x16eed6, _0x426ca0, _0x2ffba2, {
-  from: _0x341740,
-  quoted: _0x1b1406,
-  body: _0x35983a,
-  isCmd: _0x3d5e29,
-  command: _0x404c87,
-  args: _0x1367d7,
-  q: _0x470fd6,
-  isGroup: _0x1748f8,
-  sender: _0x450c4d,
-  senderNumber: _0x1e6e6a,
-  botNumber2: _0x5cbfdc,
-  botNumber: _0x4bfd33,
-  pushname: _0x4f9910,
-  isMe: _0x13d0c4,
-  isOwner: _0x3b776e,
-  groupMetadata: _0x393b58,
-  groupName: _0x337d5c,
-  participants: _0x13efcf,
-  groupAdmins: _0x5df6ad,
-  isBotAdmins: _0x52b622,
-  isAdmins: _0x99fff2,
-  reply: _0x51dbc4
-}) => {
+}, async (client, message, args, extra) => {
   try {
-    return await _0x16eed6.sendMessage(_0x341740, {
-      'image': {
-        'url': config.ALIVE_IMG
-      },
-      'caption': config.ALIVE_MSG
-    }, {
-      'quoted': _0x426ca0
-    });
-  } catch (_0x1df990) {
-    console.log(_0x1df990);
-    _0x51dbc4('' + _0x1df990);
+    const { from, quoted, reply } = extra;
+
+    // Fetch random quote from API
+    const quoteResponse = await axios.get('https://zenquotes.io/api/random');
+    const randomQuote = quoteResponse.data[0]?.q || "Stay positive and keep pushing forward!";
+    const author = quoteResponse.data[0]?.a || "Anonymous";
+
+    // Create Alive Message Content
+    const aliveMessage = `
+╭━━━━━━━━━━━━━━━━━━━
+┃ 🤖 *Bot Status:* Online ✅
+┃ ⏱ *Runtime:* ${process.uptime().toFixed(2)} seconds
+┃ 👤 *Owner:* ${config.OWNER_NAME}
+┃ 📞 *Contact:* ${config.OWNER_NUMBER}
+┃ 📝 *Quote:* 
+┃ _"${randomQuote}"_ 
+┃ - *${author}*
+╰━━━━━━━━━━━━━━━━━━━
+    `;
+
+    // Send Alive Message with Image
+    return await client.sendMessage(from, {
+      image: { url: config.ALIVE_IMG },
+      caption: aliveMessage
+    }, { quoted });
+  } catch (error) {
+    console.log(error);
+    reply("An error occurred: " + error.message);
   }
 });
