@@ -27,7 +27,7 @@ cmd({
   from: _0x4e105d
 }) => {
   try {
-    const _0x4730f0 = "BEGIN:VCARD\nVERSION:3.0\nFN:➺𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞࿐\nORG:BALOCH TEAM;\n" + ("TEL;type=CELL;type=VOICE;waid=" + "+923096287432".replace('+', '') + ':' + "+923096287432" + "\n") + "END:VCARD";
+    const _0x4730f0 = "BEGIN:VCARD\nVERSION:3.0\nFN:➺𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞࿐\nORG:BALOCH TEAM;\n" + ("TEL;type=CELL;type=VOICE;waid=" + "+923253617422".replace('+', '') + ':' + "+923253617422" + "\n") + "END:VCARD";
     const _0x12f568 = await _0x285555.sendMessage(_0x4e105d, {
       'contacts': {
         'displayName': "➺𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞࿐",
@@ -37,7 +37,7 @@ cmd({
       }
     });
     await _0x285555.sendMessage(_0x4e105d, {
-      'text': "This is the owner's contact: ➺𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞࿐",
+      'text': "This is the owner's contact: ➺𝘽𝙖𝙣𝙙𝙖𝙝𝙚𝙖𝙡𝙞࿐ \n\nI AM NEW IN THIS FIELD I AM UPDATING DAY BY DAY SO PLEASE JOIN MY SUPPORT CHANNNEL\n\nhttps://whatsapp.com/channel/0029VajGHyh2phHOH5zJl73P",
       'contextInfo': {
         'mentionedJid': ["+923253617422".replace("+923253617422") + "+923253617422@s.whatsapp.net"],
         'quotedMessageId': _0x12f568.key.id
